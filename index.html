@@ -8,13 +8,27 @@
 </head>
 <body>
 
-	<div class="container-principal">
-		<div class="row">
-			<div class="col-12">
-				<h1 class="titulo">Todo</h1>
-			</div>
-			<div class="col-12 mt-4">
-				<input id="addTask" type="text" placeholder="Create a new todo..." class="task p-2">
+	<div class="container-fluid background">
+		<div class="container-principal">
+			<div class="row">
+				<div class="col-12 p-0">
+					<h1 class="titulo">Todo</h1>
+				</div>
+				<div class="col-12 mt-4 p-0">
+					<input onkeyup="newTask(event)" id="addTask" type="text" placeholder="Create a new todo..." class="task p-2">
+				</div>
+
+				<div class="col-12 mt-4 p-0">
+					<div class="newTask">
+						<div class="round mr-5">
+							<input type="checkbox" id="checkbox" />
+							<label for="checkbox"></label>
+						</div>
+						<div id="newTask">
+							
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
