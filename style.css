@@ -69,15 +69,15 @@ body{
 .task-container ul li{
 	width: 100%;
 	box-sizing: border-box;
-	padding: 15px;
 	border-bottom: 1px solid #CCC;
+	border: 1px solid blue;
+	padding: 15px;
 }
 
 .container-checked{
 	display: block;
 	position: relative;
 	padding-left: 35px;
-	margin-bottom: 12px;
 	cursor: pointer;
 	user-select: none;
 }
@@ -92,13 +92,14 @@ body{
 
 .checkmark{
 	position: absolute;
-	top: 0;
+	top: -5px;
 	left: 0;
 	height: 25px;
 	width: 25px;
 	background-image: linear-gradient(hsl(192, 100%, 67%),hsl(280, 87%, 65%));
-	border: 1px solid transparent;
-	border-image: linear-gradient(hsl(192, 100%, 67%),hsl(280, 87%, 65%));
-	border-image-slice: 1;
+	/*border: 1px solid transparent;*/
+	/*border-image: linear-gradient(hsl(192, 100%, 67%),hsl(280, 87%, 65%));*/
+	/*border-image-slice: 1;*/
 	border-radius: 50%;
+	transform: rotate(-45deg);
 }
