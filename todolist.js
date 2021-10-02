@@ -15,7 +15,8 @@ const addTask = (e) => {
         checkboxSpan.classList.add("checkmark");
         taskElContainer.appendChild(checkbox);
         taskElContainer.appendChild(checkboxSpan);
-        taskElContainer.appendChild(newTask.value);
+        taskElContainer.innerHTML = newTask.value;
+        newTask.value = "";
         
     }
 };
