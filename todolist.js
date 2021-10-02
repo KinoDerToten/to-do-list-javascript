@@ -10,12 +10,12 @@ const addTask = (e) => {
         tasks.appendChild(taskEl);
         taskElContainer.setAttribute("id", "checked");
         taskElContainer.classList.add("container-checked")
+        taskElContainer.textContent = newTask.value;
         taskEl.appendChild(taskElContainer);
         checkbox.setAttribute("type","checkbox");
         checkboxSpan.classList.add("checkmark");
         taskElContainer.appendChild(checkbox);
         taskElContainer.appendChild(checkboxSpan);
-        taskElContainer.innerHTML = newTask.value;
         newTask.value = "";
         
     }
