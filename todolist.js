@@ -16,6 +16,13 @@ const addTask = (e) => {
         checkboxSpan.classList.add("checkmark");
         taskElContainer.appendChild(checkbox);
         taskElContainer.appendChild(checkboxSpan);
+        checkbox.addEventListener("click", () => {
+            if (checkbox.checked == true) {
+                taskElContainer.classList.add("removido");
+            } else {
+                taskElContainer.classList.remove("removido");
+            }
+        })
         newTask.value = "";
         
     }

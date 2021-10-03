@@ -127,3 +127,7 @@ body{
 	border-width: 0px 3px 3px 0px;
 	transform: rotate(90deg);
 }
+
+.removido{
+	text-decoration: line-through;
+}
