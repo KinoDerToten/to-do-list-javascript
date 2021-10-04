@@ -1,38 +1,46 @@
-const newTask = document.getElementById("newTask");
-const tasks = document.getElementById("tasks");
+onload = () => {
+	const addTodo = document.getElementById("addTodo");
+	const listTasks = document.getElementById("list-tasks");
+	const filter = document.getElementById("filter");
+	let tasks = [];
 
-const addTask = (e) => {
-    if (e.keyCode == 13) {
-        const taskEl = document.createElement("li");
-        const taskElContainer = document.createElement("label");
-        const checkbox = document.createElement("input");
-        const checkboxSpan = document.createElement("span");
-        const remove = document.createElement("button");
-        const imgButton = document.createElement("img");
-        tasks.appendChild(taskEl);
-        taskElContainer.setAttribute("id", "checked");
-        taskElContainer.classList.add("container-checked")
-        taskElContainer.textContent = newTask.value;
-        taskEl.appendChild(taskElContainer);
-        checkbox.setAttribute("type","checkbox");
-        checkboxSpan.classList.add("checkmark");
-        taskElContainer.appendChild(checkbox);
-        taskElContainer.appendChild(checkboxSpan);
-        remove.classList.add("button-remove");
-        taskElContainer.appendChild(remove);
-        imgButton.setAttribute("src","./assets/remove.png");
-        remove.appendChild(imgButton);
-        checkbox.addEventListener("click", () => {
-            if (checkbox.checked == true) {
-                taskElContainer.classList.add("removido");
-            } else {
-                taskElContainer.classList.remove("removido");
-            }
-        })
-        remove.addEventListener("click", () => {
-            tasks.removeChild(taskEl);
-        })
-        newTask.value = "";
-        
-    }
+	addTodo.addEventListener("keyup", event => {
+		if (event.keyCode == 13) {
+			tasks.push(addTodo.value);
+			newTask();
+			addTodo.value = "";
+		};
+	});
+
+	const newTask = () => {
+		const li = document.createElement("li");
+		const label = document.createElement("label")
+		const span = document.createElement("span");
+		const checkbox = document.createElement("input");
+		const qtdTask = document.getElementById("qtd-tasks");
+		const allTasks = document.getElementById("all-tasks");
+		const tasksActive = document.getElementById("tasks-active");
+		const tasksCompleted = document.getElementById("tasks-completed");
+		const clearCompletedTasks = document.getElementById("clear-completed-tasks");
+		checkbox.type = "checkbox";
+		checkbox.setAttribute("id", "checkbox")
+		span.classList.add("checkmark");
+		label.setAttribute("id", "checked");
+		label.classList.add("container-checked");
+		for(i = 0; i < tasks.length; i++){
+			label.innerText = tasks[i];
+		};
+		li.appendChild(label);
+		label.appendChild(checkbox);
+		label.appendChild(span);
+		listTasks.insertBefore(li, filter);
+		if(filter.style.display == ""){
+			filter.style.display = "block";
+		};
+		checkbox.addEventListener("click", () => {
+            label.classList.toggle("removido");
+		});
+		
+		qtdTask.innerText = tasks.length;
+	};
 };

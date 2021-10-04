@@ -1,76 +1,69 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200&display=swap');
-
-body{
+*{
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: "Josefin Sans", arial;
+}
+
+body{
 	font-size: 16px;
+	font-family: "Roboto", arial, sans-serif;
+	background-image: url(assets/bg-desktop-light.jpg);
+	background-repeat: no-repeat;
+	background-size: contain;
 	display: flex;
 	flex-direction: column;
-	background-image: url(./assets/bg-desktop-light.jpg);
-	background-repeat: no-repeat;
-	background-size: cover;
 	align-items: center;
+	height: 100vh;
 }
 
-.container{
+.container-principal{
 	width: 100%;
-	max-width: 800px;
-	position: absolute;
+	max-width: 850px;
 }
 
-.head-container{
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-	width: 100%;
-}
-
-.head-container h1{
+.title{
 	color: #FFF;
-	font-size: 50px;
 	letter-spacing: 20px;
 }
 
-.head-container button{
-	margin: 0;
-	padding: 0;
-	background: none;
-	height: 100%;
+#dark-light{
 	border: none;
-	cursor: pointer;
+	width: 100%;
+	height: 100%;
+	background: none;
 }
 
-.body-container{
-	width: 100%;
-}
-
-.body-container input{
-	width: 100%;
-	box-sizing: border-box;
+#addTodo{
 	outline: none;
 	border: none;
+	width: 100%;
+	color: #3a393f;
 	padding: 15px;
 	border-radius: 5px;
 	font-size: 20px;
 }
 
-.task-container ul{
+#list-tasks{
 	margin: 0;
 	padding: 0;
 	list-style: none;
-	margin-top: 20px;
-	border-radius: 5px 5px 0 0;
 	background-color: #FFF;
+	border-radius: 5px 5px 0 0;
 }
 
-.task-container ul li{
-	width: 100%;
-	box-sizing: border-box;
-	border-bottom: 1px solid #CCC;
+#list-tasks li{
+	font-size: 20px;
 	padding: 15px;
+	border-bottom: 1px solid #e5e4e9;
+}
+
+#filter{
+	display: none;
+}
+
+.rodape{
+	font-size: 16px;
+	cursor: pointer;
 }
 
 .container-checked{
@@ -95,8 +88,9 @@ body{
 
 .checkmark{
 	position: absolute;
-	top: -5px;
+	top: 0;
 	left: 0;
+	margin-top: 5px;
 	height: 25px;
 	width: 25px;
 	background-color: #f5f5f5;
@@ -134,17 +128,5 @@ body{
 
 .removido{
 	text-decoration: line-through;
-}
-
-.button-remove{
-	border: none;
-	background-color: #FFF;
-	margin: 0;
-	padding: 0;
-	margin-top: -4px;
-	cursor: pointer;
-}
-
-.button-remove img{
-	width: 25px;
+	color: #ccc;
 }
