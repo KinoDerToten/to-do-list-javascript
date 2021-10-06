@@ -1,7 +1,6 @@
 onload = () => {
 	const addTodo = document.getElementById("addTodo");
 	const listTasks = document.getElementById("list-tasks");
-	const filter = document.getElementById("filter");
 	let tasks = [];
 
 	addTodo.addEventListener("keyup", event => {
@@ -13,34 +12,18 @@ onload = () => {
 	});
 
 	const newTask = () => {
-		const li = document.createElement("li");
-		const label = document.createElement("label")
-		const span = document.createElement("span");
-		const checkbox = document.createElement("input");
-		const qtdTask = document.getElementById("qtd-tasks");
-		const allTasks = document.getElementById("all-tasks");
-		const tasksActive = document.getElementById("tasks-active");
-		const tasksCompleted = document.getElementById("tasks-completed");
-		const clearCompletedTasks = document.getElementById("clear-completed-tasks");
-		checkbox.type = "checkbox";
-		checkbox.setAttribute("id", "checkbox")
-		span.classList.add("checkmark");
-		label.setAttribute("id", "checked");
-		label.classList.add("container-checked");
-		for(i = 0; i < tasks.length; i++){
-			label.innerText = tasks[i];
+		listTasks.innerHTML += `
+			<li>
+				<label class="container-checked" id="checked">
+					<input type="checkbox" id="checkbox">
+					<span class="checkmark"></span>
+				</label>
+			</li>
+		`;
+		const checked = document.getElementById("checked");
+		const checkbox = document.getElementById("checkbox");
+		for(task in tasks){
+			checked.innerText = tasks[task];
 		};
-		li.appendChild(label);
-		label.appendChild(checkbox);
-		label.appendChild(span);
-		listTasks.insertBefore(li, filter);
-		if(filter.style.display == ""){
-			filter.style.display = "block";
-		};
-		checkbox.addEventListener("click", () => {
-            label.classList.toggle("removido");
-		});
-		
-		qtdTask.innerText = tasks.length;
 	};
 };
